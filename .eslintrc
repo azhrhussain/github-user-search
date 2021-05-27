@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {
+    "window": "readonly",
+    "document": "readonly",
+    "__dirname": "readonly",
+    "module": "writable",
+    "require": "readonly",
+    "setTimeout": "readonly",
+    "setInterval": "readonly",
+    "localStorage": "readonly",
+    "process": "readonly"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "tsx-baseline",
+  "version": "1.0.0",
+  "description": "github data fetch",
+  "main": "index.js",
+  "scripts": {
+    "mke": "node ./scripts/make-element.js",
+    "test": "jest",
+    "dev": "webpack serve --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "author": "Azhar Hussain",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "babel-loader": "^8.2.2",
+    "dotenv-webpack": "^7.0.2",
+    "eslint": "^7.27.0",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router": "^5.2.0",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "ts-jest": "^27.0.0",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.0"
+  }
+}
