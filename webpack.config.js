@@ -6,6 +6,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
+
   entry: {
     main: path.resolve(__dirname, 'src', 'index.tsx'),
     vendor: ['react', 'react-dom']
@@ -13,12 +14,20 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'js/[name].bundle.js',
+    publicPath: '/',
   },
+
+
   resolve: {
-    extensions: [".json", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+    fallback: {
+      "fs": false,
+      "path": require.resolve("path-browserify")
+    }
   },
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
     open: true,
     port: 3000,
   },
@@ -52,6 +61,5 @@ module.exports = {
       // }
     ]
   },
-
   devtool: 'source-map',
 }

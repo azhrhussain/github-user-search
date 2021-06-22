@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "module": "CommonJS",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "outDir": "./dist/",
     "preserveConstEnums": true,
     "removeComments": true,
@@ -11,7 +11,7 @@
     "esModuleInterop": true,
   },
   "include": [
-    "./src/**/**/*"
+    "./src/**/**/*",
   ],
   "globals": {
     "window": "readonly",
