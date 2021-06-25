@@ -1,4 +1,4 @@
-import { ReactRouterDom } from "react-router-dom";
+import  ReactRouterDom  from "react-router-dom";
 import { useHandleClickNext, useHandleClickPrevious } from "../hooks";
 
 const history = {
@@ -14,35 +14,6 @@ jest.mock("react-router-dom", () => ({
     .mockReturnValue({ pathname: "/user/ali", search: "?page" }),
 }));
 describe("test cases for Pagination", () => {
-  // it("test pagination with next page", () => {
-  //   render(renderWithProvider(<Repository />));
-  //   const nextButton = screen.getByTestId("next-btn");
-  //   expect(nextButton).toBeEnabled();
-  //   jest.spyOn(history, "push").mockReturnValue({ push: history });
-  //   fireEvent.click(nextButton);
-  //   const paginationQueryParams = {
-  //     ...queryParams,
-  //     page: queryParams.page + 1,
-  //   };
-  //   let url = `?${queryString.stringify(paginationQueryParams)}`;
-  //   expect(history.push).toBeCalledTimes(1);
-  //   expect(history.push).toHaveBeenCalledWith({ search: url });
-  // });
-  // it("test pagination previous button", async () => {
-  //   render(renderWithProvider(<Repository />));
-  //   const previousButton = screen.getByTestId("previous-btn");
-  //   expect(previousButton).toBeEnabled();
-  //   jest.spyOn(history, "push").mockReturnValue({ push: history });
-  //   fireEvent.click(previousButton);
-  //   expect(queryParams.page > 1).toBeTruthy();
-  //   const paginationQueryParams = {
-  //     ...queryParams,
-  //     page: queryParams.page - 1,
-  //   };
-  //   const url = `?${queryString.stringify(paginationQueryParams)}`;
-  //   expect(queryParams.page).toBeGreaterThan(1);
-  //   expect(history.push).toHaveBeenCalledWith({ search: url });
-  // });
   it("next page hook", () => {
     const page = 2;
     const handleClickNext = useHandleClickNext(page, 8);

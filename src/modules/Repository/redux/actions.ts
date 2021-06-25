@@ -33,14 +33,14 @@ export const fetchRepositoryList =
     const response = await fetchRepositoryListApi(payload);
     const { status } = response;
     const data = await response.json();
-    const header = response.headers.get('link');
+    const header= response.headers.get('link');
 
     if(status >= 200 && status < 300) {
-      const normalized = normalizeRepositoryListResponse(data,header);
+      const normalized = normalizeRepositoryListResponse(data,header!);
       //return current page from payload if page is last
       normalized.numPages = normalizedPageNumber(normalized.numPages, payload.pageNumber);
       //incase of empty reposData throw static error
-      if(normalized.reposData.length > 0) {
+      if(normalized.reposData!.length > 0) {
         dispatch(fetchRepositoryListSuccess(normalized));
       }else{
         throw new Error(normalizeError(data, status));

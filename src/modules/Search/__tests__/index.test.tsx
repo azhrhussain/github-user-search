@@ -1,8 +1,4 @@
-import {
-  toBeDisabled,
-  toBeEnabled,
-  toBeInTheDocument,
-} from "@testing-library/jest-dom/matchers";
+import "@testing-library/jest-dom/extend-expect";
 
 import React from "react";
 import {
@@ -19,7 +15,6 @@ import { BrowserRouter } from "react-router-dom";
 import Search from "../index";
 import { USER_INPUT_ERROR } from "../constants";
 
-expect.extend({ toBeDisabled, toBeEnabled, toBeInTheDocument });
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 let user = {

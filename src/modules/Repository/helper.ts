@@ -8,7 +8,7 @@ export const normalizeRepositoryListURL = (payload:IRepositoryListPayload):strin
       return url;
 }
 
-export const normalizedPageNumber = (normalizedNumPages, payloadPageNumber) => {
+export const normalizedPageNumber = (normalizedNumPages: number | undefined, payloadPageNumber: string) => {
   if (normalizedNumPages === 0) {
     return   Number(payloadPageNumber);
   }

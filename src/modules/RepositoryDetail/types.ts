@@ -4,7 +4,7 @@ export interface IRepositoryDetailPayload {
 }
 export interface IUserRepositoryDetailState extends IRepositoryDetailPayload {
   error?: string;
-  readme?: string;
+  readme?: string | '';
   readmeLoading?: boolean;
   readmeError?: string;
   isLoading?: boolean;

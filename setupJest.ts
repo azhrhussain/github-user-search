@@ -1,1 +1,2 @@
-require('jest-fetch-mock')
+require('jest-fetch-mock');
+require('@testing-library/jest-dom');

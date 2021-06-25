@@ -8,14 +8,14 @@ const Pagination = (props: IPagination): JSX.Element => {
     <>
       <Button
         data-testid="previous-btn"
-        disabled={page < 2}
+        disabled={page! < 2}
         onClick={handleClickPrevious}
       >
         Previous
       </Button>{" "}
       <Button
         data-testid="next-btn"
-        disabled={page >= numPages}
+        disabled={page! >= numPages!}
         onClick={handleClickNext}
       >
         Next

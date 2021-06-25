@@ -11,11 +11,12 @@ import Loader from "../../elements/LoaderCard";
 import ErrorCard from "../../elements/ErrorCard";
 
 const RepositoryDetail = (): JSX.Element => {
-  const { repositoryId, userId } = useParams();
+  const { repositoryId, userId }: any = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const userRepositoryDetail: IUserRepositoryDetailState =
-    useSelector<IRootState>((state) => state.userRepositoryDetail);
+  const userRepositoryDetail = useSelector<IRootState>(
+    (state) => state.userRepositoryDetail
+  ) as IUserRepositoryDetailState;
   const { isLoading, filePathTree, error, readmeLoading, readmeError, readme } =
     userRepositoryDetail;
   const payload: IRepositoryDetail = {
@@ -63,7 +64,7 @@ const RepositoryDetail = (): JSX.Element => {
           ) : (
             <>
               {!error && <h4>Repository files</h4>}
-              {filePathTree.map((tree) => (
+              {filePathTree!.map((tree) => (
                 <div key={tree} data-testid="file-tree-container">
                   <hr />
                   {tree}
@@ -82,7 +83,11 @@ const RepositoryDetail = (): JSX.Element => {
         <Col lg={12}>
           <h1>README.md</h1>
           <hr />
-          {readmeLoading ? <Loader /> : <ReactMarkdown>{readme}</ReactMarkdown>}
+          {readmeLoading ? (
+            <Loader />
+          ) : (
+            <ReactMarkdown>{readme!}</ReactMarkdown>
+          )}
           {!readmeLoading && readmeError ? (
             <ErrorCard size="2" errorText={readmeError} />
           ) : null}

@@ -27,7 +27,7 @@ export const normalizeUserDataResponse = (data: any):IUser =>{
 };
 // normalizeRepositoryListResponse Response = 200 IRepositoryListData Interface
 export const normalizeRepositoryListResponse = (data: any, header:string):IRepositoryListData =>{
-  const repositoryList = data.filter(repo => !repo.private).map(repo => {
+  const repositoryList = data.filter((repo: { private: any; }) => !repo.private).map((repo: { id: any; name: any; owner: { login: any; }; description: any; }) => {
     return {
       id: repo.id,
       name: repo.name,
@@ -53,6 +53,6 @@ export const normalizeRepositoryListResponse = (data: any, header:string):IRepos
 // normalizeFilePathTree and convert to array of string
 export const normalizeFilePathTree = (data: any): Array<string> =>{
   const { tree =[] } = data;
-  const pathTree = tree.map(t=> t.path);
+  const pathTree = tree.map((t: { path: any; })=> t.path);
   return pathTree;
 };

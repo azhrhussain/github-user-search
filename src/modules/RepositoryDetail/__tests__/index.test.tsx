@@ -1,21 +1,11 @@
 import React from "react";
-import {
-  toBeDisabled,
-  toBeEnabled,
-  toBeInTheDocument,
-} from "@testing-library/jest-dom/matchers";
+import "@testing-library/jest-dom/extend-expect";
 
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  cleanup,
-} from "@testing-library/react";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { BrowserRouter, ReactRouterDom } from "react-router-dom";
+import ReactRouterDom, { BrowserRouter } from "react-router-dom";
 import fetchMock from "jest-fetch-mock";
 import RepositoryDetail from "../index";
 import { LOADING_DEFAULT_TEXTS } from "../../../utils/constants";
@@ -25,7 +15,6 @@ import {
   fetchRepositoryReadmeApi,
 } from "../redux/services";
 
-expect.extend({ toBeDisabled, toBeEnabled, toBeInTheDocument });
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 afterEach(cleanup);
@@ -36,7 +25,7 @@ const useParams = {
 let userRepositoryDetail = {
   isLoading: false,
   error: "",
-  filePathTree: [],
+  filePathTree: [] as string[],
   readme: "",
   readmeLoading: false,
   readmeError: "",
@@ -45,7 +34,7 @@ const history = {
   push: jest.fn(),
   goBack: jest.fn(),
 };
-const generateFilePathData = (count) => {
+const generateFilePathData = (count: number): string[] => {
   const records = [];
   for (let i = 1; i <= count; i += 1) {
     records.push(`file-${i}`);
@@ -65,7 +54,7 @@ jest.mock("react-router-dom", () => ({
   useHistory: jest.fn(() => history),
   useParams: () => useParams,
 }));
-const renderWithProvider = (component) => {
+const renderWithProvider = (component: {} | null | undefined) => {
   const store = mockStore({ userRepositoryDetail: getProps() });
   return (
     <BrowserRouter>
@@ -183,10 +172,6 @@ describe("Repository list component render", () => {
     expect(repositoryDetailBtn).toBeInTheDocument();
     expect(repositoryDetail).toBeInTheDocument();
   });
-
-  // API fetch files
-
-  // API fetch readmeMd
 });
 describe("test cases for APIs call", () => {
   const payload = {

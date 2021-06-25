@@ -13,7 +13,7 @@ import UserCard from "./UserCard";
 
 const Search = (): JSX.Element => {
   const dispatch = useDispatch();
-  const user: IUserState = useSelector<IRootState>((state) => state.user);
+  const user = useSelector<IRootState>((state) => state.user) as IUserState;
   const [username, setUsername] = useState("");
   const [searchInputError, setSearchInputError] = useState("");
 

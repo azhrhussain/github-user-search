@@ -10,20 +10,22 @@ import RepositoryCard from "./RepositoryCard";
 import Loader from "../../elements/LoaderCard";
 import ErrorCard from "../../elements/ErrorCard";
 import Pagination from "../../elements/Pagination";
-import queryString from "query-string";
 import { useHandleClickNext, useHandleClickPrevious } from "./hooks";
 
 const Repository = (): JSX.Element => {
   const dispatch = useDispatch();
-  const userRepositories: IRepositoryListState = useSelector<IRootState>(
+
+  const userRepositories = useSelector<IRootState>(
     (state) => state.repos
-  );
+  ) as IRepositoryListState;
   const { isLoading, error, reposData, numPages } = userRepositories;
-  const { userId } = useParams();
+  const { userId } = useParams<{ userId: string }>();
 
   const history = useHistory();
   const location = useLocation();
-  const pageNumber = new URLSearchParams(location.search).get("page");
+  const pageNumber: string | null = new URLSearchParams(location.search).get(
+    "page"
+  );
 
   useEffect(() => {
     if (!pageNumber) {
@@ -37,12 +39,12 @@ const Repository = (): JSX.Element => {
     }
   }, [userId, pageNumber]);
 
-  const page = Number(pageNumber);
+  const page: number = Number(pageNumber);
 
-  const handleClickNext = useHandleClickNext(page, numPages);
+  const handleClickNext = useHandleClickNext(page, numPages!);
   const handleClickPrevious = useHandleClickPrevious(page);
 
-  const hasPagination = reposData.length > 1 && numPages;
+  const hasPagination = reposData!.length > 1 && numPages;
   return (
     <Container>
       <Row>
@@ -64,7 +66,7 @@ const Repository = (): JSX.Element => {
         {isLoading ? (
           <Loader data-testid="loader" />
         ) : (
-          reposData.map((repo) => {
+          reposData!.map((repo) => {
             return (
               <RepositoryCard
                 data-testid="repository-list-card"

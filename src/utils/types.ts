@@ -4,7 +4,7 @@ import { IRepositoryListState } from '../modules/Repository/types';
 import { IUserRepositoryDetailState } from '../modules/RepositoryDetail/types';
 export interface IRootState  {
   user: IUserState,
-  repos: IRepositoryListState,
+  repos: IRepositoryListState | any,
   userRepositoryDetail: IUserRepositoryDetailState,
 }
 
@@ -23,8 +23,8 @@ export interface ILoader{
 }
 
 export interface IPagination{
-  page: number;
-  numPages: number;
+  page: number | undefined;
+  numPages: number | undefined;
   handleClickPrevious: () => void;
   handleClickNext: () => void;
 }
