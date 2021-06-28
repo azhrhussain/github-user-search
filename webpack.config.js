@@ -43,7 +43,9 @@ module.exports = {
       filename: 'index.html',
       favicon: './public/favicon.ico'
     }),
-    new DotenvPlugin(),
+    new DotenvPlugin({
+      systemvars: true,
+    }),
   ],
   module: {
     rules: [
