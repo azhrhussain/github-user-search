@@ -15,6 +15,10 @@ clone app > on root `.env copy` rename as `.env` > `npm install` > `npm start` >
 
 [info] app is not build with CRA
 
+### Demo
+Open  [https://github-userrepos.netlify.app/](https://github-userrepos.netlify.app/)
+
+
 ## Available Scripts
 In the project directory, you can run:
 ### `npm start`
