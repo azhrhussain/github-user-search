@@ -1,5 +1,4 @@
 {
-  "homepage": "http://azhrhussain.github.io/github-user-search",
   "name": "search-github-user-repos",
   "version": "1.0.0",
   "description": "github data fetch",
@@ -11,9 +10,7 @@
     "coverage": "jest --coverage",
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "start-build": "npx webpack serve",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "start-build": "npx webpack serve"
   },
   "author": "Azhar Hussain",
   "license": "ISC",
@@ -36,7 +33,6 @@
     "babel-loader": "^8.2.2",
     "dotenv-webpack": "^7.0.2",
     "eslint": "^7.27.0",
-    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.1",
     "jest-dom": "^4.0.0",
