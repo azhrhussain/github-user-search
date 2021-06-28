@@ -12,14 +12,10 @@ You can search user with github valid ID and then you can see user's public repo
 
 ## Steps of runing app on dev mod
 clone app > on root `.env copy` rename as `.env` > `npm install` > `npm start` > Open  [http://localhost:3000](http://localhost:3000/)  to view it in the browser
-### Demo
+## Demo
 Open  [https://github-userrepos.netlify.app/](https://github-userrepos.netlify.app/)
 
 [info] app is not build with CRA
-
-### Demo
-Open  [https://github-userrepos.netlify.app/](https://github-userrepos.netlify.app/)
-
 
 ## Available Scripts
 In the project directory, you can run:
