@@ -10,6 +10,11 @@ You can search user with github valid ID and then you can see user's public repo
 ### All repo files are listed and Readme.md content
 ![Screenshot from 2021-06-24 11-40-49](https://user-images.githubusercontent.com/10018893/123587362-9b799180-d7ff-11eb-9cc5-b7d46d91ba98.png)
 
+## Steps of runing app on dev mod
+clone app > on root `.env copy` rename as `.env` > `npm install` > `npm start` > Open  [http://localhost:3000](http://localhost:3000/)  to view it in the browser
+
+[info] app is not build with CRA
+
 ## Available Scripts
 In the project directory, you can run:
 ### `npm start`
